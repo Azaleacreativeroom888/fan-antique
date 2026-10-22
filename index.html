@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ふるびや | 古本・古着・骨董品</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --denim:#2d4a73;
+  --denim-deep:#1f3555;
+  --wash:#e9eef4;
+  --paper:#f7f9fb;
+  --orange:#e8761e;
+  --orange-deep:#a84b0c;
+  --ink:#1c2635;
+  --serif:"Zen Old Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Zen Kaku Gothic New","Hiragino Sans","Yu Gothic",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.9;font-size:16px}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* ヘッダー：デニム地 + オレンジのステッチ */
+header{background:var(--denim);color:#fff;border-bottom:4px solid var(--denim-deep);position:relative}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-11px;border-top:2px dashed var(--orange)}
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding:14px 20px;max-width:960px;margin:0 auto}
+.logo{font-family:var(--serif);font-weight:900;font-size:1.6rem;letter-spacing:.12em;text-decoration:none}
+nav ul{display:flex;gap:4px 22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent}
+nav a:hover,nav a[aria-current="page"]{border-bottom-color:var(--orange)}
+
+/* ヒーロー */
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center}
+h1{font-family:var(--serif);font-weight:900;font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.35;margin:0 0 20px;color:var(--denim-deep)}
+.hero p{max-width:34em;margin:0 0 28px}
+.btn{display:inline-block;background:var(--orange);color:#fff;font-weight:700;text-decoration:none;padding:12px 28px;border-radius:2px;border:2px dashed #fff;outline:2px solid var(--orange)}
+.btn:hover{background:var(--orange-deep);outline-color:var(--orange-deep)}
+
+/* 荷札 */
+.tag{position:relative;width:200px;background:var(--orange);color:#fff;text-align:center;padding:56px 16px 28px;clip-path:polygon(18% 0,82% 0,100% 16%,100% 100%,0 100%,0 16%);transform:rotate(4deg)}
+.tag::before{content:"";position:absolute;top:16px;left:50%;width:18px;height:18px;margin-left:-9px;background:var(--paper);border-radius:50%}
+.tag b{display:block;font-family:var(--serif);font-size:1.5rem;line-height:1.5;font-weight:900}
+.tag span{display:block;margin-top:10px;font-size:.85rem;border-top:1px dashed rgba(255,255,255,.8);padding-top:10px}
+
+/* セクション共通 */
+section{padding:48px 0}
+h2{font-family:var(--serif);font-weight:900;font-size:1.7rem;margin:0 0 8px;color:var(--denim-deep)}
+.lead{margin:0 0 28px;color:#43506a}
+
+/* 3つの棚 */
+.shelves{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.patch{background:var(--denim);color:#fff;padding:28px 22px;border:2px dashed var(--orange);outline:6px solid var(--denim);outline-offset:-1px;position:relative}
+.patch:nth-child(2){background:var(--orange);border-color:#fff;outline-color:var(--orange)}
+.patch:nth-child(3){background:var(--denim-deep);outline-color:var(--denim-deep)}
+.patch h3{font-family:var(--serif);font-size:1.4rem;margin:0 0 8px}
+.patch p{margin:0;font-size:.95rem}
+
+/* 入荷リスト */
+.wash{background:var(--wash)}
+.ledger{list-style:none;margin:0;padding:0;border-top:2px solid var(--denim)}
+.ledger li{display:flex;gap:16px;align-items:baseline;padding:14px 4px;border-bottom:1px dashed #8aa0bd}
+.ledger .kind{flex:none;min-width:4.5em;font-weight:700;color:var(--orange-deep)}
+.ledger .name{flex:1}
+.ledger .price{flex:none;font-family:var(--serif);font-weight:700;color:var(--denim-deep)}
+.note{margin:14px 0 0;font-size:.85rem;color:#5a6780}
+
+/* 案内 */
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--denim)}
+.guide a{padding:26px 22px;text-decoration:none;background:var(--paper)}
+.guide a+a{border-left:2px dashed var(--orange)}
+.guide a:hover{background:var(--wash)}
+.guide strong{display:block;font-family:var(--serif);font-size:1.25rem;color:var(--denim-deep);margin-bottom:4px}
+.guide span{font-size:.92rem;color:#43506a}
+
+footer{background:var(--denim-deep);color:#dbe5f1;padding:36px 0 28px;margin-top:24px;border-top:2px dashed var(--orange);text-align:center;font-size:.9rem}
+
+@media (max-width:720px){
+  .hero{padding:48px 0 36px}
+  .hero .wrap{grid-template-columns:1fr}
+  .tag{margin:0 auto}
+  .shelves,.guide{grid-template-columns:1fr}
+  .guide a+a{border-left:0;border-top:2px dashed var(--orange)}
+  .ledger li{flex-wrap:wrap;gap:4px 14px}
+  .ledger .name{flex-basis:100%;order:3}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="bar">
+    <a class="logo" href="index.html">ふるびや</a>
+    <nav aria-label="メインメニュー">
+      <ul>
+        <li><a href="index.html" aria-current="page">ホーム</a></li>
+        <li><a href="blog.html">ブログ</a></li>
+        <li><a href="gallery.html">ギャラリー</a></li>
+        <li><a href="about.html">このサイトについて</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>古いものには、<br>まだ続きがある。</h1>
+        <p>古本、古着、骨董品。誰かの手を渡ってきたものを集めて、たいせつに眺めるためのサイトです。履きこんだデニムのように、時間がたつほど味が出るものたちを紹介します。</p>
+        <a class="btn" href="gallery.html">ギャラリーを見る</a>
+      </div>
+      <div class="tag" aria-hidden="true">
+        <b>古本<br>古着<br>骨董</b>
+        <span>一点もの</span>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <h2>三つの棚</h2>
+      <p class="lead">集めているものは、大きく三つに分かれます。</p>
+      <div class="shelves">
+        <div class="patch">
+          <h3>古本</h3>
+          <p>紙の色、背表紙のかすれ、前の持ち主の書きこみまで含めて楽しむ本たち。</p>
+        </div>
+        <div class="patch">
+          <h3>古着</h3>
+          <p>ジーンズ、シャツ、ジャケット。着られてきた分だけ、生地がやわらかくなっています。</p>
+        </div>
+        <div class="patch">
+          <h3>骨董品</h3>
+          <p>器、雑貨、道具。使うために作られて、いまも使えるものを中心に。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wash">
+    <div class="wrap">
+      <h2>最近の出会い</h2>
+      <p class="lead">見つけたものの記録です。</p>
+      <ul class="ledger">
+        <li><span class="kind">古本</span><span class="name">（ここに本のタイトルを入れる）</span><span class="price">000円</span></li>
+        <li><span class="kind">古着</span><span class="name">（ここに古着の名前を入れる）</span><span class="price">000円</span></li>
+        <li><span class="kind">骨董品</span><span class="name">（ここに骨董品の名前を入れる）</span><span class="price">000円</span></li>
+      </ul>
+      <p class="note">※ 内容と値段は仮のものです。あとで好きなものに書きかえてください。</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>ほかのページ</h2>
+      <p class="lead">勉強の記録や、描いた作品もここに置いています。</p>
+      <div class="guide">
+        <a href="blog.html"><strong>ブログ</strong><span>勉強の進捗を日付つきでひとこと。</span></a>
+        <a href="gallery.html"><strong>ギャラリー</strong><span>漫画とイラストを並べています。</span></a>
+        <a href="about.html"><strong>このサイトについて</strong><span>サイトの目的と、運営している人のこと。</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© ふるびや</div>
+</footer>
+
+</body>
+</html>
